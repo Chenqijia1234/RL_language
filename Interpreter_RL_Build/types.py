@@ -1,8 +1,15 @@
+# cython:language_level=3
 import os
 import os.path
 import sys
-from . import interpre
-from . import types
+if __name__ != "__main__":
+    from . import interpre
+    from . import errors
+    from . import types
+else:
+    from Interpreter_RL import interpre
+    from Interpreter_RL import errors
+    from Interpreter_RL import types
 
 
 # 构建解释器函数存储对象

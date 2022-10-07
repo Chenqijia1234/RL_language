@@ -1,13 +1,19 @@
+# cython:language_level=3
 import sys
 import traceback
-from . import types
-from . import errors
+if __name__ != "__main__":
+    from . import types
+    from . import errors
+else:
+    from Interpreter_RL import types
+    from Interpreter_RL import errors
 
 
 class Interpreter:
     Process = []
 
     def __init__(self, mode: str = "shell"):
+        self.__key = None
         self.ver = types.CONFIG["ver"]
         self.edition = types.CONFIG["edition"]
         self.stdout = []
@@ -67,7 +73,7 @@ class Interpreter:
                     com = input(">>")
                     self.run_script(com)
                     # print("std",self.stdouted)
-                    if self.retn_val != None:
+                    if self.retn_val is not None:
                         print("return val:", self.retn_val)
             except Exception as e:
                 # traceback.print_tb(sys.exc_info()[2])
