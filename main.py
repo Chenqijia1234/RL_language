@@ -2,13 +2,17 @@
 #
 # it = interpre.Interpreter()
 # it.run_loop()
+import time
+# import ctypes
 
-import cv2 as cv
-import sys
-img = cv.imread(cv.samples.findFile(r"./c.JPG"))
-if img is None:
-    sys.exit("Could not read the image.")
-cv.imshow("Display window", img)
-k = cv.waitKey(0)
-if k == ord("s"):
-    cv.imwrite("starry_night.png", img)
+import win32api
+import win32con
+import win32gui
+win32api.ShellExecute(0,"open","notepad.exe","","",1)
+time.sleep(5)
+notepad = win32gui.FindWindow("Notepad",None)
+
+if notepad != 0:
+    win32gui.SendMessage(notepad,win32con.WM_SETTEXT,None,"Hello")
+    edit = win32gui.FindWindowEx(notepad,None,"Edit",None)
+    win32gui.SendMessage(edit,win32con.WM_SETTEXT,None,"您好，PYTHON")
