@@ -4,7 +4,13 @@
 ###### 注意：由于本项目仍在大规模开发中，所以暂时无法正常使用。
 C站项目页:
 >https://code.xueersi.com/m/course-detail?id=37258004&lang=python (dev版本)
+---
 gitcode加速站点：
->
+>https://gitcode.net/ChenQIJIA66/RL_language
+---
+
+##一、如何使用？
+
+######待更新
 
 
