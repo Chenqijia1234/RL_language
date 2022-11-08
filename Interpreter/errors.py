@@ -1,9 +1,12 @@
+
+
+
 if __name__ != "__main__":
-    from . import runtime, interpreter, types
+    from . import runtime, interpreter,Rtypes
 else:
     import runtime
     import interpreter
-    import types
+    import Rtypes
 
 
 class BaseError(Exception):

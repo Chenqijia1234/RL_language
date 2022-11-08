@@ -1,0 +1,8 @@
+using std;
+
+namespace main{
+    var a:int;
+    void main(){
+        println(a);
+    }
+}

@@ -1,26 +1,28 @@
 # if __name__ != "__main__":
-#     from . import runtime, interpreter, types
+#     from . import runtime, interpreter, Rtypes
 # else:
 # import runtime
-
-
+import os
 import interpreter
-import types
+import Rtypes
 
 
 def MainLoop(mode,FileName:None|str):
-    # main_namespace = types.NameSpace()
-    # safeIO = types.SafeIOSandbox()
+    # main_namespace = Rtypes.NameSpace()
+    # safeIO = Rtypes.SafeIOSandbox()
     # interpreter = interpreter.Interpreter(mode,main_namespace,safeIO)
-    if mode== types.ConsoleMode.FROM_FILE:
+    if mode== Rtypes.ConsoleMode.FROM_FILE:
         try:
             with open(FileName,"r") as file:
-                print(file.read())
+                a:list[str] = file.readlines()
+                for i in range(len(a)):
+                    a[i] = a[i].strip()
+                print(a)
         except OSError as e:
             print("Check your input!")
-    elif mode==types.ConsoleMode.LINE_AND_LINE:
+    elif mode==Rtypes.ConsoleMode.LINE_AND_LINE:
         while True:    
             print(interpreter.run(input(">>>")))
 
 
-MainLoop(types.ConsoleMode.FROM_FILE,"first.rls")
+MainLoop(Rtypes.ConsoleMode.FROM_FILE,r"./first.rls")
